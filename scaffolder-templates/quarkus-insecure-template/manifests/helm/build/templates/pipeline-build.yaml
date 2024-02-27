@@ -33,12 +33,23 @@ spec:
       workspaces:
         - name: output
           workspace: source-folder
+    - name: package
+      runAfter:
+        - git-clone
+      taskRef:
+        kind: ClusterTask
+        name: maven
+      workspaces:
+        - name: source
+          workspace: source-folder
+        - name: maven-settings
+          workspace: maven-settings
     - name: build-image
       params:
       - name: IMAGE
         value: $(params.output-image)
       runAfter:
-      - git-clone
+      - package
       taskRef:
         kind: Task
         name: buildah
