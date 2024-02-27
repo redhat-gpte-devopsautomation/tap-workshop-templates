@@ -42,12 +42,6 @@ spec:
             value: central-stackrox{{ .Values.app.cluster }}:443
           - name: stackrox-secret
             value: {{ .Values.app.name }}-stackrox-token
-          - name: git-host
-            value: gitlab-gitlab{{ .Values.app.cluster }}
-          - name: git-owner
-            value: {{ .Values.git.org }}
-          - name: component-id
-            value: {{ .Values.app.name }}
           - name: common-password-secret
             value: common-password-secret
           - name: rekor-url

@@ -32,12 +32,6 @@ spec:
       type: string
     - name: stackrox-secret
       type: string
-    - name: git-host
-      type: string
-    - name: git-owner
-      type: string
-    - name: component-id
-      type: string
     - name: common-password-secret
       type: string
     - name: rekor-url
@@ -197,26 +191,12 @@ spec:
       runAfter:
       - acs-image-check
       - acs-image-scan
-      - acs-deploy-check
       taskRef:
         kind: Task
         name: scan-export-sbom
       workspaces:
       - name: repository
         workspace: source-folder
-    - name: query-rekor-signed-provenance
-      params:
-      - name: imageDigest
-        value: $(tasks.build-sign-image.results.IMAGE_DIGEST)
-      - name: rekorUrl
-        value: $(params.rekor-url)
-      taskRef:
-        kind: Task
-        name: rekor-signed-provenance
-      runAfter:
-      - acs-image-check
-      - acs-image-scan
-      - acs-deploy-check
   results:
     - name: IMAGE_URL
       value: "$(tasks.build-sign-image.results.IMAGE_URL)"
