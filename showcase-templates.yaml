@@ -1,9 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: project-dance-templates
-  description: A collection of RHDH templates for Project Dance
+  name: tap-workshop-templates
+  description: A collection of RHDH templates for the Trusted Application Pipeline workshop.
 spec:
   type: url
   targets:
-     - https://{{ gitlab_host }}/{{ gitlab_group }}/trusted-application-pipeline-templates/blob/main/scaffolder-templates/quarkus-stssc-template/template.yaml
+     - https://{{ gitlab_host }}/{{ gitlab_group }}/tap-workshop-templates/blob/main/scaffolder-templates/quarkus-secure-template/template.yaml
+     - https://{{ gitlab_host }}/{{ gitlab_group }}/tap-workshop-templates/blob/main/scaffolder-templates/quarkus-insecure-template/template.yaml
