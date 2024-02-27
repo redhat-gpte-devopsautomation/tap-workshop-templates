@@ -52,9 +52,9 @@ spec:
       - image_organization
       - image_tag
       properties:
-        title: Image host
-        type: string
         image_registry:
+          title: Image host
+          type: string
           enum:
             - Quay
           default: Quay
