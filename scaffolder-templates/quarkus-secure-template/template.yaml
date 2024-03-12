@@ -99,7 +99,7 @@ spec:
               title: Verify Commits
               type: string
               description: Verify Git repository commits using Red Hat’s Trusted Artifact Signer (TAS) service
-              default: disabled
+              default: enabled
               enum:
                 - enabled
                 - disabled
