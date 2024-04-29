@@ -48,7 +48,7 @@ components:
           mkdir -p /projects/home/bin && cp -vf /opt/app-root/src/clients/linux/cosign-amd64.gz /projects/home/bin/cosign.gz && cp -vf /opt/app-root/src/clients/linux/gitsign-amd64.gz /projects/home/bin/gitsign.gz
       command:
         - /bin/bash
-      image: quay.io/redhat-user-workloads/rhtas-tenant/cli/client-server-cg@sha256:5c7e83f13f9ba52c927bcb86abb5f9efa8ca4fe9ab7031709bde7f48829f6d0f
+      image: registry.redhat.io/rhtas/client-server-cg-rhel9:1.0.0
       sourceMapping: /projects
       mountSources: true
       memoryLimit: 256M
@@ -63,7 +63,7 @@ components:
           mkdir -p /projects/home/bin && cp -vf /opt/app-root/src/clients/linux/rekor-cli-amd64.gz /projects/home/bin/rekor-cli.gz
       command:
         - /bin/bash
-      image: quay.io/redhat-user-workloads/rhtas-tenant/cli/client-server-re@sha256:d20c57b457650a025c225863462b2f9bf193ca35534dbf2cfcd9f6ab07a091b9
+      image: registry.redhat.io/rhtas/client-server-re-rhel9:1.0.0
       sourceMapping: /projects
       mountSources: true
       memoryLimit: 256M
