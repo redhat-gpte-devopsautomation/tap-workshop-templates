@@ -42,6 +42,8 @@ spec:
       type: string
     - name: oidc-issuer
       type: string
+    - name: component-id
+      type: string
   tasks:
     - name: git-clone
       params:
@@ -158,7 +160,20 @@ spec:
       workspaces:
       - name: reports
         workspace: reports
-    - name: scan-export-sbom
+    - name: upload-sbom-to-tpa
+      runAfter:
+      - acs-image-check
+      - acs-image-scan
+      taskRef:
+        kind: Task
+        name: upload-sbom-to-tpa
+      params:
+      - name: COMPONENT_ID
+        value: $(params.component-id)
+      workspaces:
+      - name: sboms
+        workspace: source-folder
+    - name: upload-sbom-to-repository
       params:
       - name: cyclonedxHostUrl
         value: $(params.cyclonedx-host-url)
