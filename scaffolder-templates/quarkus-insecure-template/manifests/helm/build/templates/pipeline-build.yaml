@@ -45,6 +45,7 @@ spec:
         - name: maven-settings
           workspace: maven-settings
     - name: build-image
+      retries: 2
       params:
       - name: IMAGE
         value: $(params.output-image)
